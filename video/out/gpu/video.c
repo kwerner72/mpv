@@ -478,6 +478,8 @@ const struct m_sub_options gl_video_conf = {
             {"no", -1})},
         {"hdr-peak-percentile", OPT_FLOAT(tone_map.peak_percentile),
             M_RANGE(0.0, 100.0)},
+        {"hdr-black-percentile", OPT_FLOAT(tone_map.black_percentile),
+            M_RANGE(0.0, 100.0)},
         {"hdr-peak-decay-rate", OPT_FLOAT(tone_map.decay_rate),
             M_RANGE(0.0, 1000.0)},
         {"hdr-scene-threshold-low", OPT_FLOAT(tone_map.scene_threshold_low),

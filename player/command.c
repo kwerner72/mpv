@@ -2488,6 +2488,7 @@ static int property_imgparams(const struct mp_image_params *p, int action, void 
         {"scene-max-b", SUB_PROP_FLOAT(hdr->scene_max[2]), .unavailable = !has_hdr10plus},
         {"scene-avg",   SUB_PROP_FLOAT(hdr->scene_avg),    .unavailable = !has_hdr10plus},
         {"max-pq-y",    SUB_PROP_FLOAT(hdr->max_pq_y),     .unavailable = !has_cie_y},
+        {"min-pq-y",    SUB_PROP_FLOAT(hdr->min_pq_y),     .unavailable = !has_cie_y},
         {"avg-pq-y",    SUB_PROP_FLOAT(hdr->avg_pq_y),     .unavailable = !has_cie_y},
         {0}
     };

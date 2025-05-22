@@ -876,10 +876,12 @@ void mp_image_params_update_dynamic(struct mp_image_params *dst,
     dst->repr.dovi = src->repr.dovi;
     // Don't overwrite peak-detected HDR metadata if available.
     float max_pq_y = dst->color.hdr.max_pq_y;
+    float min_pq_y = dst->color.hdr.min_pq_y;
     float avg_pq_y = dst->color.hdr.avg_pq_y;
     dst->color.hdr = src->color.hdr;
     if (has_peak_detect_values) {
         dst->color.hdr.max_pq_y = max_pq_y;
+        dst->color.hdr.min_pq_y = min_pq_y;
         dst->color.hdr.avg_pq_y = avg_pq_y;
     }
 }
@@ -896,7 +898,7 @@ void mp_image_params_restore_dovi_mapping(struct mp_image_params *params)
     if (!pl_color_transfer_is_hdr(params->transfer_orig))
         params->color.hdr = (struct pl_hdr_metadata){0};
     if (params->transfer_orig != PL_COLOR_TRC_PQ)
-        params->color.hdr.max_pq_y = params->color.hdr.avg_pq_y = 0;
+        params->color.hdr.max_pq_y = params->color.hdr.min_pq_y = params->color.hdr.avg_pq_y = 0;
 }
 
 // Set most image parameters, but not image format or size.
