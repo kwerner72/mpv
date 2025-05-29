@@ -121,9 +121,11 @@ struct gl_tone_map_opts {
     int compute_peak;
     float decay_rate;
     float scene_threshold_low;
+    float scene_threshold_avg;
     float scene_threshold_high;
     float peak_percentile;
     float black_percentile;
+    float black_maxadvance;
     float contrast_recovery;
     float contrast_smoothness;
     int gamut_mode;

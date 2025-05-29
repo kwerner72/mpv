@@ -2111,8 +2111,8 @@ static void update_hook_opts_dynamic(struct priv *p, const struct pl_hook *hook,
         {     "scene_max_b", mpi->params.color.hdr.scene_max[2] },
         {       "scene_avg", mpi->params.color.hdr.scene_avg    },
         {        "max_pq_y", mpi->params.color.hdr.max_pq_y     },
-        {        "min_pq_y", mpi->params.color.hdr.min_pq_y     },
         {        "avg_pq_y", mpi->params.color.hdr.avg_pq_y     },
+        {        "min_pq_y", mpi->params.color.hdr.min_pq_y     },
     };
 
     for (int i = 0; i < hook->num_parameters; i++) {
@@ -2260,9 +2260,11 @@ static void update_render_options(struct vo *vo)
     pars->params.peak_detect_params = opts->tone_map.compute_peak >= 0 ? &pars->peak_detect_params : NULL;
     pars->peak_detect_params.smoothing_period = opts->tone_map.decay_rate;
     pars->peak_detect_params.scene_threshold_low = opts->tone_map.scene_threshold_low;
+    pars->peak_detect_params.scene_threshold_avg = opts->tone_map.scene_threshold_avg;
     pars->peak_detect_params.scene_threshold_high = opts->tone_map.scene_threshold_high;
     pars->peak_detect_params.percentile = opts->tone_map.peak_percentile;
     pars->peak_detect_params.black_percentile = opts->tone_map.black_percentile;
+    pars->peak_detect_params.black_maxadvance = opts->tone_map.black_maxadvance;
     pars->peak_detect_params.allow_delayed = p->next_opts->delayed_peak;
 
     const struct pl_tone_map_function * const tone_map_funs[] = {

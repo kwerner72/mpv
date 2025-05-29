@@ -853,6 +853,9 @@ local function append_hdr(s, hdr, video_out)
         append(s, format("%.2f cd/m² (%.2f%% PQ)", pq_eotf(hdr["avg-pq-y"]),
                          hdr["avg-pq-y"] * 100), {prefix="Avg:", nl="",
                          indent=indent})
+        append(s, format("%.2f cd/m² (%.2f%% PQ)", pq_eotf(hdr["min-pq-y"]),
+                         hdr["min-pq-y"] * 100), {prefix="Min:", nl="",
+                         indent=indent})
     end
 end
 

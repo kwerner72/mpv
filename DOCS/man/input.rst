@@ -2798,6 +2798,9 @@ Property list
     ``video-params/avg-pq-y``
         Average PQ luminance of a frame, as reported by peak detection (in PQ, 0-1)
 
+    ``video-params/min-pq-y``
+        Minimum PQ luminance of a frame, as reported by peak detection (in PQ, 0-1)
+
     When querying the property with the client API using ``MPV_FORMAT_NODE``,
     or with Lua ``mp.get_property_native``, this will return a mpv_node with
     the following contents:
